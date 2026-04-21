@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejecución técnica de obra para estudios de arquitectura · Lorenzo Arquitectura</title>
+<meta name="description" content="Partner técnico de obra para estudios de arquitectura e interiorismo en Madrid y Toledo. Reserva una reunión técnica de 20 minutos.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== Design tokens ===== */
+  :root {
+    --c-primary: #003B56;
+    --c-secondary: #A1B4BA;
+    --c-secondary-dark: #7E959C;
+    --c-bg: #ffffff;
+    --c-bg-alt: #f3f4f6;
+    --c-bg-soft: #e8ecee;
+    --c-text: #2b2b2b;
+    --c-text-soft: #5c6770;
+    --c-border: #e0e4e7;
+    --c-accent: #003B56;
+
+    --f-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --container: 1180px;
+    --container-narrow: 920px;
+    --shadow-sm: 0 2px 8px rgba(0, 59, 86, 0.06);
+    --shadow-md: 0 8px 28px rgba(0, 59, 86, 0.10);
+    --shadow-lg: 0 20px 60px rgba(0, 59, 86, 0.15);
+    --transition: 220ms cubic-bezier(.2,.7,.3,1);
+  }
+
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--f-sans);
+    font-weight: 400;
+    color: var(--c-text);
+    background: var(--c-bg);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 28px; }
+
+  /* ===== Typography ===== */
+  h1, h2, h3, h4 { font-family: var(--f-sans); color: var(--c-primary); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.7rem, 3vw, 2.35rem); font-weight: 500; }
+  h3 { font-size: clamp(1.15rem, 1.6vw, 1.4rem); font-weight: 600; }
+  p { color: var(--c-text); }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--c-secondary-dark);
+    margin-bottom: 18px;
+  }
+
+  /* ===== Header ===== */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0,59,86,0.08);
+    z-index: 100;
+    transition: background var(--transition);
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 76px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+  }
+  .logo img {
+    height: 56px;
+    width: auto;
+    display: block;
+  }
+  @media (max-width: 500px) {
+    .logo img { height: 44px; }
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--c-text);
+    transition: color var(--transition);
+  }
+  .nav-links a:hover { color: var(--c-primary); }
+  .nav-cta {
+    padding: 11px 22px;
+    background: var(--c-primary);
+    color: #fff !important;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: background var(--transition);
+  }
+  .nav-cta:hover { background: #002a3f; }
+
+  @media (max-width: 900px) {
+    .nav-links li:not(:last-child) { display: none; }
+  }
+
+  /* ===== Buttons ===== */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: all var(--transition);
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--c-primary);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: #002a3f;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-light {
+    background: #fff;
+    color: var(--c-primary);
+  }
+  .btn-light:hover {
+    background: var(--c-bg-alt);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-lg {
+    padding: 18px 36px;
+    font-size: 0.92rem;
+  }
+  .btn-arrow { display: inline-block; transition: transform var(--transition); }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 120px 0 80px;
+    overflow: hidden;
+    background: var(--c-primary);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,59,86,0.78) 0%, rgba(0,59,86,0.45) 60%, rgba(0,59,86,0.35) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    color: #fff;
+    animation: fadeUp 900ms cubic-bezier(.2,.7,.3,1);
+  }
+  .hero-eyebrow {
+    color: var(--c-secondary);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    color: #fff;
+    max-width: 820px;
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 28px;
+  }
+  .hero h1 strong { font-weight: 600; }
+  .hero-sub {
+    max-width: 640px;
+    font-size: clamp(1rem, 1.35vw, 1.15rem);
+    color: rgba(255,255,255,0.9);
+    font-weight: 300;
+    line-height: 1.55;
+    margin-bottom: 40px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .hero-secondary-cta {
+    color: #fff;
+    font-size: 0.88rem;
+    opacity: 0.85;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 4px;
+    transition: opacity var(--transition);
+  }
+  .hero-secondary-cta:hover { opacity: 1; }
+
+  /* Trust bar */
+  .trust-bar {
+    background: var(--c-bg-alt);
+    padding: 28px 0;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .trust-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--c-text-soft);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .trust-item::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--c-secondary);
+    border-radius: 50%;
+  }
+  .trust-item:first-child::before { display: none; }
+
+  @media (max-width: 700px) {
+    .trust-items { gap: 18px; }
+    .trust-item { font-size: 0.72rem; }
+  }
+
+  /* ===== Sections ===== */
+  section { padding: 100px 0; }
+  .bg-alt { background: var(--c-bg-alt); }
+
+  @media (max-width: 768px) {
+    section { padding: 70px 0; }
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 70px;
+  }
+  .section-header p {
+    margin-top: 18px;
+    font-size: 1.05rem;
+    color: var(--c-text-soft);
+    line-height: 1.6;
+  }
+
+  /* ===== Pain section ===== */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .pain-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .pain-intro p {
+    font-size: 1.08rem;
+    line-height: 1.7;
+    color: var(--c-text);
+    margin-bottom: 20px;
+  }
+  .pain-intro .close {
+    padding: 20px 24px;
+    border-left: 3px solid var(--c-secondary);
+    background: #fff;
+    font-style: italic;
+    color: var(--c-primary);
+    font-weight: 500;
+    margin-top: 30px;
+  }
+  .pain-list {
+    list-style: none;
+    padding: 0;
+  }
+  .pain-list li {
+    padding: 18px 0 18px 36px;
+    border-bottom: 1px solid var(--c-border);
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--c-text);
+    position: relative;
+  }
+  .pain-list li:last-child { border-bottom: none; }
+  .pain-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 24px;
+    width: 20px;
+    height: 1px;
+    background: var(--c-primary);
+  }
+
+  /* ===== Yes/No section ===== */
+  .yesno-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--c-border);
+  }
+  @media (max-width: 800px) {
+    .yesno-wrap { grid-template-columns: 1fr; }
+  }
+  .yesno-col {
+    padding: 50px 44px;
+  }
+  .yesno-col.yes { background: var(--c-primary); color: #fff; }
+  .yesno-col.no { background: #fff; }
+  .yesno-header {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid currentColor;
+  }
+  .yesno-col.yes .yesno-header { color: var(--c-secondary); border-color: rgba(161,180,186,0.3); }
+  .yesno-col.no .yesno-header { color: var(--c-text-soft); border-color: var(--c-border); }
+  .yesno-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .yesno-list li {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    padding-left: 30px;
+    position: relative;
+  }
+  .yesno-col.yes .yesno-list li { color: rgba(255,255,255,0.95); }
+  .yesno-col.no .yesno-list li { color: var(--c-text); }
+  .yesno-list li::before {
+    position: absolute;
+    left: 0; top: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .yesno-col.yes .yesno-list li::before { content: '+'; color: var(--c-secondary); font-size: 1.2rem; top: 0; }
+  .yesno-col.no .yesno-list li::before { content: '—'; color: var(--c-secondary-dark); }
+
+  /* ===== 4 pillars ===== */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 800px) {
+    .pillars-grid { grid-template-columns: 1fr; }
+  }
+  .pillar {
+    background: #fff;
+    padding: 42px 38px;
+    border: 1px solid var(--c-border);
+    transition: all var(--transition);
+  }
+  .pillar:hover {
+    border-color: var(--c-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .pillar-number {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    color: var(--c-secondary-dark);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .pillar h3 {
+    margin-bottom: 16px;
+    color: var(--c-primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .pillar p {
+    color: var(--c-text-soft);
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  /* ===== Archetypes ===== */
+  .archetypes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 900px) {
+    .archetypes-grid { grid-template-columns: 1fr; gap: 20px; }
+  }
+  .archetype {
+    background: #fff;
+    border-top: 3px solid var(--c-secondary);
+    padding: 40px 32px;
+    transition: all var(--transition);
+  }
+  .archetype:hover {
+    border-top-color: var(--c-primary);
+    box-shadow: var(--shadow-md);
+  }
+  .archetype-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--c-text-soft);
+    margin-bottom: 18px;
+    display: block;
+    line-height: 1.5;
+  }
+  .archetype h3 {
+    margin-bottom: 18px;
+    color: var(--c-primary);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .archetype p {
+    color: var(--c-text-soft);
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  /* ===== Meeting section - the centerpiece (primary CTA) ===== */
+  .meeting-section {
+    background: var(--c-primary);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .meeting-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(161,180,186,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .meeting-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+  }
+  @media (max-width: 900px) {
+    .meeting-grid { grid-template-columns: 1fr; gap: 50px; }
+  }
+  .meeting-content h2 {
+    color: #fff;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin-bottom: 22px;
+    line-height: 1.15;
+  }
+  .meeting-content h2 strong { font-weight: 600; color: var(--c-secondary); }
+  .meeting-content .eyebrow { color: var(--c-secondary); }
+  .meeting-content > p {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+  .meeting-checklist {
+    list-style: none;
+    margin-bottom: 36px;
+  }
+  .meeting-checklist li {
+    padding: 14px 0 14px 32px;
+    position: relative;
+    color: rgba(255,255,255,0.92);
+    font-size: 0.98rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .meeting-checklist li:last-child { border-bottom: none; }
+  .meeting-checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 22px;
+    width: 16px; height: 1px;
+    background: var(--c-secondary);
+  }
+  .meeting-checklist li strong {
+    color: #fff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Form card */
+  .form-card {
+    background: #fff;
+    color: var(--c-text);
+    padding: 48px 44px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: -12px; left: -12px;
+    width: 100%; height: 100%;
+    border: 2px solid var(--c-secondary);
+    z-index: -1;
+    opacity: 0.5;
+  }
+  .form-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: var(--c-primary);
+  }
+  .form-card .form-intro {
+    color: var(--c-text-soft);
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+    line-height: 1.55;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 500px) {
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-text-soft);
+    margin-bottom: 7px;
+  }
+  .form-group label .optional {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    opacity: 0.7;
+    font-size: 0.78rem;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--c-border);
+    background: #fff;
+    font-family: inherit;
+    font-size: 0.94rem;
+    color: var(--c-text);
+    transition: border-color var(--transition);
+    resize: vertical;
+  }
+  .form-group textarea { min-height: 90px; font-family: inherit; }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--c-primary);
+  }
+  .form-group input.error,
+  .form-group textarea.error {
+    border-color: #c44;
+  }
+  .form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 22px;
+    font-size: 0.8rem;
+    color: var(--c-text-soft);
+    line-height: 1.5;
+  }
+  .form-checkbox input {
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--c-primary);
+    flex-shrink: 0;
+  }
+  .form-checkbox a {
+    color: var(--c-primary);
+    text-decoration: underline;
+  }
+  .form-card button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    background: var(--c-primary);
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .form-card button[type="submit"]:hover {
+    background: #002a3f;
+    transform: translateY(-1px);
+  }
+  .form-card button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+  .form-privacy-note {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--c-text-soft);
+    margin-top: 18px;
+  }
+
+  /* Success state */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 30px 0;
+  }
+  .form-success.active { display: block; }
+  .form-success .check-icon {
+    display: inline-flex;
+    width: 60px; height: 60px;
+    background: var(--c-secondary);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    font-size: 1.8rem;
+    color: #fff;
+  }
+  .form-success h3 {
+    margin-bottom: 12px;
+    color: var(--c-primary);
+    font-size: 1.35rem;
+  }
+  .form-success p {
+    color: var(--c-text-soft);
+    font-size: 0.95rem;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-list {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--c-border);
+  }
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 28px 0;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--c-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: color var(--transition);
+  }
+  .faq-question:hover { color: #002a3f; }
+  .faq-icon {
+    width: 24px; height: 24px;
+    flex-shrink: 0;
+    position: relative;
+    transition: transform var(--transition);
+  }
+  .faq-icon::before, .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--c-primary);
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .faq-icon::before { width: 14px; height: 1.5px; }
+  .faq-icon::after { width: 1.5px; height: 14px; transition: transform var(--transition); }
+  .faq-item.open .faq-icon::after { transform: translate(-50%, -50%) scaleY(0); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms cubic-bezier(.2,.7,.3,1);
+  }
+  .faq-answer-inner {
+    padding: 0 0 28px 0;
+    color: var(--c-text-soft);
+    font-size: 0.98rem;
+    line-height: 1.7;
+    max-width: 720px;
+  }
+  .faq-item.open .faq-answer { max-height: 400px; }
+
+  /* ===== Guide download (secondary CTA, lighter weight) ===== */
+  .guide-download {
+    background: var(--c-bg-alt);
+    padding: 90px 0;
+  }
+  .guide-card {
+    background: #fff;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    border-left: 4px solid var(--c-secondary);
+    box-shadow: var(--shadow-sm);
+  }
+  @media (max-width: 800px) {
+    .guide-card { grid-template-columns: 1fr; padding: 40px 32px; gap: 40px; }
+  }
+  .guide-card .eyebrow { color: var(--c-secondary-dark); }
+  .guide-card h2 {
+    font-size: clamp(1.5rem, 2.4vw, 1.95rem);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .guide-card h2 strong { font-weight: 600; }
+  .guide-card > div:first-child > p {
+    color: var(--c-text-soft);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .guide-meta {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    font-size: 0.78rem;
+    color: var(--c-text-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .guide-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .guide-meta span::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--c-secondary);
+    border-radius: 50%;
+  }
+
+  /* Compact form for guide download */
+  .guide-form h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    color: var(--c-primary);
+  }
+  .guide-form .form-intro {
+    font-size: 0.86rem;
+    color: var(--c-text-soft);
+    margin-bottom: 20px;
+  }
+  .guide-form .form-group { margin-bottom: 12px; }
+  .guide-form button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: var(--c-primary);
+    color: #fff;
+    font-size: 0.86rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 4px;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .guide-form button[type="submit"]:hover {
+    background: #002a3f;
+  }
+  .guide-form .form-checkbox {
+    margin-bottom: 16px;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    background: var(--c-secondary);
+    color: #fff;
+    padding: 70px 0 32px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
+  }
+  @media (max-width: 800px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  }
+  @media (max-width: 500px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+  .footer-col h4 {
+    color: #fff;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .footer-col p, .footer-col a {
+    color: rgba(255,255,255,0.92);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    display: block;
+  }
+  .footer-col a:hover { opacity: 0.8; }
+  .footer-logo {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .footer-logo img {
+    height: 64px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.8);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ===== Animations ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms cubic-bezier(.2,.7,.3,1), transform 700ms cubic-bezier(.2,.7,.3,1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== Sticky CTA mobile ===== */
+  .sticky-cta {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    padding: 12px 16px;
+    background: #fff;
+    border-top: 1px solid var(--c-border);
+    z-index: 90;
+    box-shadow: 0 -4px 16px rgba(0,59,86,0.08);
+  }
+  .sticky-cta .btn { width: 100%; justify-content: center; }
+  @media (max-width: 700px) {
+    .sticky-cta { display: block; }
+    body { padding-bottom: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="logo" aria-label="Lorenzo Arquitectura · Obras y Proyectos">
+        <img src="assets/logo-lorenzo.png" alt="Lorenzo Arquitectura · Obras y Proyectos">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#problema">El problema</a></li>
+        <li><a href="#que-hacemos">Qué hacemos</a></li>
+        <li><a href="#para-quien">Para quién</a></li>
+        <li><a href="#faq">Preguntas</a></li>
+        <li><a href="#reunion" class="nav-cta">Reservar reunión</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="hero-eyebrow">Para estudios de arquitectura e interiorismo</div>
+    <h1>No proyectamos. <strong>Ejecutamos lo que tú has proyectado.</strong></h1>
+    <p class="hero-sub">Partner técnico de obra en Madrid y Toledo. Presupuesto cerrado, documentación que tú puedes enseñar a tu cliente y cero protagonismo frente a él.</p>
+    <div class="hero-ctas">
+      <a href="#reunion" class="btn btn-light btn-lg">
+        Reservar reunión técnica <span class="btn-arrow">→</span>
+      </a>
+      <a href="#problema" class="hero-secondary-cta">O conoce nuestro enfoque</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trust bar -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <span class="trust-item">+25 años ejecutando obra</span>
+      <span class="trust-item">Madrid y Toledo</span>
+      <span class="trust-item">Estudios · Interiorismo · Inversión</span>
+      <span class="trust-item">Confidencialidad absoluta</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAIN SECTION ===== -->
+<section id="problema">
+  <div class="container">
+    <div class="pain-grid">
+      <div class="pain-intro reveal">
+        <span class="eyebrow">El problema</span>
+        <h2>Tu diseño es impecable. Tu reputación depende de quien lo ejecuta.</h2>
+        <p style="margin-top: 28px;">Tu cliente no distingue entre quien proyecta y quien ejecuta. Para él, todo lo que ocurre en obra es responsabilidad tuya. Un retraso del contratista es un retraso tuyo. Una terminación mal resuelta es una terminación tuya.</p>
+        <p>Una ampliación de presupuesto a mitad de obra es una conversación incómoda que tú vas a tener que mantener con tu cliente.</p>
+        <div class="close">
+          El problema no es que tu contratista sea peor técnico que tú. Es que tú estás asumiendo una responsabilidad reputacional que no debería recaer sobre tu estudio.
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Probablemente te suene</span>
+        <ul class="pain-list">
+          <li>Perseguir al contratista cada semana para saber por qué va con retraso.</li>
+          <li>Tener que tomar decisiones de oficio que no te tocan, porque nadie más las va a tomar.</li>
+          <li>Recibir la llamada del cliente preguntando algo que tú no sabías que estaba pasando en obra.</li>
+          <li>Pedir al cliente una ampliación de presupuesto que no habías previsto ni podías prever.</li>
+          <li>Ver tu diseño mal ejecutado y no tener documentación que respalde quién tomó cada decisión.</li>
+          <li>Defender tu trabajo ante un cliente que ya no diferencia entre tu proyecto y la obra.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT WE DO / DON'T DO ===== -->
+<section id="que-hacemos" class="bg-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Qué somos y qué no somos</span>
+      <h2>Nuestro nombre lleva la palabra "arquitectura". Nuestro modelo, no.</h2>
+      <p>Conviene dejarlo claro antes de cualquier conversación técnica.</p>
+    </div>
+    <div class="yesno-wrap reveal">
+      <div class="yesno-col yes">
+        <div class="yesno-header">Sí hacemos</div>
+        <ul class="yesno-list">
+          <li>Ejecutamos obra técnica según el proyecto que tú has diseñado.</li>
+          <li>Documentamos cada decisión con informes que tú puedes enseñar a tu cliente.</li>
+          <li>Nos comunicamos contigo como interlocutor único, salvo que indiques otra cosa.</li>
+          <li>Resolvemos obra para que tú no tengas que ir a supervisar cada decisión de oficio.</li>
+          <li>Firmamos presupuestos cerrados con partidas detalladas desde el inicio.</li>
+        </ul>
+      </div>
+      <div class="yesno-col no">
+        <div class="yesno-header">No hacemos</div>
+        <ul class="yesno-list">
+          <li>No proyectamos ni rediseñamos sin tu autorización.</li>
+          <li>No nos llevamos al cliente. Nuestro modelo depende de que tú sigas siendo su estudio.</li>
+          <li>No nos presentamos a tu cliente por nuestra cuenta ni buscamos su contacto directo.</li>
+          <li>No improvisamos ni tomamos decisiones técnicas relevantes sin documentarlas.</li>
+          <li>No firmamos presupuestos abiertos ni partidas "a justificar" sin acuerdo previo.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOUR PILLARS ===== -->
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Cómo te protegemos</span>
+      <h2>No vendemos obras. Vendemos tu tranquilidad frente a tu cliente.</h2>
+      <p>Cada diferencial está pensado en clave de protección del estudio cliente, no de optimización operativa nuestra.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <span class="pillar-number">01 — Previsibilidad</span>
+        <h3>Presupuesto cerrado. El número que le digas a tu cliente, será el número final.</h3>
+        <p>Partidas detalladas desde el inicio. Las ampliaciones solo se producen si tú autorizas un cambio, siempre con coste y plazo cerrado antes de ejecutar. Si hay que pedirle algo al cliente, lo pedimos juntos y con documentación.</p>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-number">02 — Documentación</span>
+        <h3>Informes que tú puedes enseñar a tu cliente.</h3>
+        <p>Informes fotográficos semanales, actas de decisión y trazabilidad de cambios. Tu cliente recibe una obra profesional; tú recibes el respaldo técnico que te cubre si cualquier decisión se cuestiona meses después.</p>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-number">03 — Interlocución</span>
+        <h3>Hablamos contigo, no con tu cliente.</h3>
+        <p>Tú decides qué información llega al cliente final y cómo. Firmamos confidencialidad por defecto. Si prefieres que nuestra presencia se gestione como parte de tu equipo, así se presenta.</p>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-number">04 — Anticipación</span>
+        <h3>Detectamos problemas antes de ejecutar.</h3>
+        <p>Incompatibilidades entre disciplinas, encuentros constructivos mal previstos, choques con normativa. No te llamamos a última hora para que resuelvas cosas que debería haberse visto en planificación. Tu tiempo es para proyectar y vender.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARCHETYPES ===== -->
+<section id="para-quien" class="bg-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Para quién trabajamos</span>
+      <h2>Partner técnico para tres tipos de estudio.</h2>
+      <p>No trabajamos con cualquier cliente. Si te reconoces en alguno de estos perfiles, probablemente haya encaje.</p>
+    </div>
+    <div class="archetypes-grid">
+      <div class="archetype reveal">
+        <span class="archetype-tag">15-50 personas · Cartera propia<br>Crecimiento contenido</span>
+        <h3>Estudios que crecen en cartera, no en estructura.</h3>
+        <p>Aceptáis proyectos por encima de vuestra capacidad actual de ejecución y no queréis contratar dos arquitectos técnicos más en plantilla. Externalizar obra con nosotros os permite escalar cartera sin engordar estructura fija.</p>
+      </div>
+      <div class="archetype reveal">
+        <span class="archetype-tag">2-10 personas · Cliente exigente<br>Detalle milimétrico</span>
+        <h3>Estudios de interiorismo premium.</h3>
+        <p>Vuestro cliente paga seis cifras y espera una ejecución a la altura del proyecto. Un retraso de dos semanas o un encuentro mal resuelto destruye meses de relación. Respetamos el detalle como si lo hubiésemos diseñado.</p>
+      </div>
+      <div class="archetype reveal">
+        <span class="archetype-tag">Passivhaus · Sanitario · Educativo<br>Patrimonio · BIM</span>
+        <h3>Estudios técnicos de nicho.</h3>
+        <p>Trabajáis con normativas que no se improvisan. Necesitáis un ejecutor que sepa leer documentación compleja y no os obligue a explicar lo básico. Hablamos vuestro idioma técnico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEETING (PRIMARY CTA) ===== -->
+<section id="reunion" class="meeting-section">
+  <div class="container">
+    <div class="meeting-grid">
+      <div class="meeting-content reveal">
+        <span class="eyebrow">Reunión técnica · 20 minutos · Sin compromiso</span>
+        <h2>Evaluemos <strong>un proyecto concreto.</strong></h2>
+        <p>Veinte minutos bastan para saber si encajamos. Revisamos contigo un proyecto que tengas en mente, te contamos cómo trabajamos y, si vemos encaje, te pasamos una propuesta con presupuesto cerrado en menos de una semana.</p>
+        <ul class="meeting-checklist">
+          <li>
+            <strong>Revisamos tu documentación técnica</strong>
+            Si ya tienes proyecto básico o ejecutivo, lo miramos por adelantado.
+          </li>
+          <li>
+            <strong>Identificamos puntos críticos</strong>
+            Te señalamos incompatibilidades o riesgos antes de que firmes con nadie.
+          </li>
+          <li>
+            <strong>Propuesta en menos de una semana</strong>
+            Si hay encaje, presupuesto cerrado con partidas detalladas.
+          </li>
+          <li>
+            <strong>Si no hay encaje, te lo decimos</strong>
+            No perseguimos contratos forzados. Si no somos lo que necesitas, se dice en la reunión.
+          </li>
+        </ul>
+      </div>
+      <div class="form-container reveal" id="meetingFormContainer">
+        <div class="form-card">
+          <div class="form-fields">
+            <h3>Solicita tu reunión técnica</h3>
+            <p class="form-intro">Te contactamos en menos de 24h laborables para confirmar fecha y formato (presencial en Madrid/Toledo o videollamada).</p>
+            <form id="meetingForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="m-name">Nombre</label>
+                  <input type="text" id="m-name" name="name" required placeholder="Tu nombre" autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                  <label for="m-studio">Estudio</label>
+                  <input type="text" id="m-studio" name="studio" required placeholder="Nombre del estudio" autocomplete="organization">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="m-email">Email</label>
+                  <input type="email" id="m-email" name="email" required placeholder="tu@estudio.com" autocomplete="email">
+                </div>
+                <div class="form-group">
+                  <label for="m-phone">Teléfono <span class="optional">(opcional)</span></label>
+                  <input type="tel" id="m-phone" name="phone" placeholder="600 00 00 00" autocomplete="tel">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="m-project">Proyecto en mente <span class="optional">(opcional)</span></label>
+                <textarea id="m-project" name="project" placeholder="Dos líneas sobre el proyecto que te gustaría comentar: tipo, ubicación, fase en la que está…"></textarea>
+              </div>
+              <label class="form-checkbox">
+                <input type="checkbox" id="m-consent" required>
+                <span>He leído y acepto las <a href="#">políticas legales y de privacidad</a>.</span>
+              </label>
+              <button type="submit" id="meetingSubmit">
+                <span>Solicitar reunión técnica</span>
+                <span class="btn-arrow">→</span>
+              </button>
+              <p class="form-privacy-note">Respondemos en 24h laborables · Sin compromiso</p>
+            </form>
+          </div>
+          <div class="form-success" id="meetingSuccess">
+            <div class="check-icon">✓</div>
+            <h3>¡Solicitud recibida!</h3>
+            <p>Te escribiremos en menos de 24h laborables para confirmar fecha y formato de la reunión.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Lo que se pregunta un estudio antes de trabajar con nosotros.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Vais a contactar con mi cliente por vuestra cuenta?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No. Nuestra interlocución es contigo. El cliente final sabe de nosotros solo lo que tú decidas compartir, y firmamos confidencialidad por defecto. Si prefieres que la obra se presente como "tu equipo", lo gestionamos así sin excepciones.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Y si el cliente pide cambios a mitad de obra?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Protocolo documentado: evaluamos coste y plazo del cambio, te lo pasamos por escrito con la afectación al conjunto, y solo ejecutamos cuando tú nos das luz verde. Ningún cambio se ejecuta "sobre la marcha".</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Ya tengo un contratista de confianza. ¿Por qué probar con vosotros?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No pedimos que nos confíes toda tu cartera. Lo habitual es empezar con un proyecto piloto concreto, normalmente uno donde tu contratista habitual esté saturado o fuera de su nicho técnico (sanitario, Passivhaus, cambio de uso…). Así evaluamos encaje con bajo riesgo.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Sois más caros que un contratista genérico?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">En la firma del contrato, a veces sí. En el total final de obra, raramente. Te lo documentamos al cierre: desviaciones evitadas, cambios resueltos sin sobrecoste, plazos cumplidos. El diferencial no está en el precio hora, está en el coste total del proyecto.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Tenéis experiencia en mi nicho técnico?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No tenemos portfolio público de todos los proyectos por confidencialidad de clientes, pero en reunión técnica compartimos casos ejecutados en cambio de uso, residencial alto valor, sanitario, hostelería, retail y clínicas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GUIDE DOWNLOAD (SECONDARY CTA) ===== -->
+<section class="guide-download" id="descargar">
+  <div class="container">
+    <div class="guide-card reveal">
+      <div>
+        <span class="eyebrow">¿Aún no listo para reunirte? Llévate esto antes</span>
+        <h2>Guía gratuita: <strong>5 criterios para externalizar ejecución sin perder el control del proyecto.</strong></h2>
+        <p>Pensada para estudios que quieren evaluar a un ejecutor técnico antes de firmar con él. Auditoría previa, cláusulas contractuales, protocolo de cambios, documentación semanal y red flags habituales en presupuestos.</p>
+        <div class="guide-meta">
+          <span>PDF · 18 páginas</span>
+          <span>Lectura de 10 minutos</span>
+          <span>Sin spam posterior</span>
+        </div>
+      </div>
+      <div class="form-container guide-form" id="guideFormContainer">
+        <div class="form-fields">
+          <h3>Recíbela en tu correo</h3>
+          <p class="form-intro">Déjanos nombre y correo. Te llega en menos de 2 minutos.</p>
+          <form id="guideForm" novalidate>
+            <div class="form-group">
+              <label for="g-name">Nombre</label>
+              <input type="text" id="g-name" name="name" required placeholder="Tu nombre" autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="g-email">Correo electrónico</label>
+              <input type="email" id="g-email" name="email" required placeholder="tu@estudio.com" autocomplete="email">
+            </div>
+            <label class="form-checkbox">
+              <input type="checkbox" id="g-consent" required>
+              <span>Acepto las <a href="#">políticas legales y de privacidad</a> y recibir la guía.</span>
+            </label>
+            <button type="submit" id="guideSubmit">
+              <span>Descargar guía</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </form>
+        </div>
+        <div class="form-success" id="guideSuccess">
+          <div class="check-icon">✓</div>
+          <h3>¡Guía enviada!</h3>
+          <p>Revisa tu bandeja en los próximos minutos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <span class="footer-logo">
+          <img src="assets/logo-lorenzo.png" alt="Lorenzo Arquitectura · Obras y Proyectos">
+        </span>
+        <p>Partner técnico de obra para estudios de arquitectura e interiorismo en Madrid y Toledo.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="mailto:info@lorenzoarquitectura.com">info@lorenzoarquitectura.com</a>
+        <a href="tel:+34925903869">925 90 38 69</a>
+      </div>
+      <div class="footer-col">
+        <h4>Toledo</h4>
+        <p>Calle Torrelaguna 61, 2ºD<br>45005 Toledo</p>
+      </div>
+      <div class="footer-col">
+        <h4>Madrid</h4>
+        <p>Oficina en Madrid<br>Visitas con cita previa</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lorenzo Arquitectura · Obras y Proyectos</span>
+      <span>Política de privacidad · Aviso legal · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky-cta">
+  <a href="#reunion" class="btn btn-primary">Reservar reunión técnica →</a>
+</div>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Generic form handler factory
+  function handleForm(formId, containerId, successId, submitBtnId, fields) {
+    const form = document.getElementById(formId);
+    const container = document.getElementById(containerId);
+    const success = document.getElementById(successId);
+    const submitBtn = document.getElementById(submitBtnId);
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+      const data = {};
+
+      fields.forEach(f => {
+        const el = document.getElementById(f.id);
+        if (!el) return;
+        el.classList.remove('error');
+        const val = el.value.trim();
+        data[f.name] = val;
+
+        if (f.required && !val) { el.classList.add('error'); valid = false; }
+        if (f.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+          el.classList.add('error'); valid = false;
+        }
+      });
+
+      const consentBox = form.querySelector('input[type="checkbox"][required]');
+      if (consentBox && !consentBox.checked) { valid = false; consentBox.focus(); }
+
+      if (!valid) return;
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Enviando…</span>';
+
+      // Simulate submission. In production, connect to CRM/email tool.
+      setTimeout(() => {
+        container.querySelector('.form-fields').style.display = 'none';
+        success.classList.add('active');
+        // Actual integration point:
+        // fetch('/api/submit', { method: 'POST', body: JSON.stringify({ type: formId, ...data }) });
+      }, 900);
+    });
+  }
+
+  handleForm('meetingForm', 'meetingFormContainer', 'meetingSuccess', 'meetingSubmit', [
+    { id: 'm-name', name: 'name', required: true },
+    { id: 'm-studio', name: 'studio', required: true },
+    { id: 'm-email', name: 'email', required: true, type: 'email' },
+    { id: 'm-phone', name: 'phone', required: false },
+    { id: 'm-project', name: 'project', required: false }
+  ]);
+
+  handleForm('guideForm', 'guideFormContainer', 'guideSuccess', 'guideSubmit', [
+    { id: 'g-name', name: 'name', required: true },
+    { id: 'g-email', name: 'email', required: true, type: 'email' }
+  ]);
+
+  // Header shadow on scroll
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.style.boxShadow = '0 2px 12px rgba(0,59,86,0.06)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
