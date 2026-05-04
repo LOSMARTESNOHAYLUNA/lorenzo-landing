@@ -1,4 +1,4 @@
-# Landing Lorenzo Arquitectura — Estudios de arquitectura
+# Landing Lorenzo Arquitectura — Estudios de arquitectura.
 
 Landing page estática orientada a estudios de arquitectura e interiorismo. CTA principal: reservar reunión técnica. CTA secundario: descargar guía.
 
