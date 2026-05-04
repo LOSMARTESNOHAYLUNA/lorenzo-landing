@@ -939,7 +939,7 @@
 <header>
   <div class="container">
     <nav class="nav">
-      <a href="https://lorenzoarquitectura.com" class="logo" aria-label="Ir a la web principal de Lorenzo Arquitectura">
+      <a href="https://www.lorenzoarquitectura.com" class="logo" aria-label="Ir a la web principal de Lorenzo Arquitectura">
         <img src="assets/logo-lorenzo.png" alt="Lorenzo Arquitectura · Obras y Proyectos">
       </a>
       <ul class="nav-links">
@@ -1261,8 +1261,8 @@
       </div>
       <div class="form-container guide-form" id="guideFormContainer">
         <div class="form-fields">
-          <h3>Recíbela en tu correo</h3>
-          <p class="form-intro">Déjanos nombre y correo. Te llega en menos de 2 minutos.</p>
+          <h3>Accede a la guía</h3>
+          <p class="form-intro">Déjanos nombre y correo y la abrirás al instante.</p>
           <form id="guideForm" novalidate>
             <!-- Web3Forms config -->
             <input type="hidden" name="access_key" value="613fdf6d-bfd4-4297-bdca-22b031ac9a15">
@@ -1290,8 +1290,8 @@
         </div>
         <div class="form-success" id="guideSuccess">
           <div class="check-icon">✓</div>
-          <h3>¡Guía enviada!</h3>
-          <p>Revisa tu bandeja en los próximos minutos.</p>
+          <h3>¡Listo, tu guía se está abriendo!</h3>
+          <p>Si no se abre automáticamente, <a href="https://drive.google.com/file/d/1HsLwRcx8wYztjLBjywTlnA0YovLxjmnA/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:var(--c-primary);text-decoration:underline;font-weight:500;">haz clic aquí para acceder a la guía</a>.</p>
         </div>
       </div>
     </div>
@@ -1303,7 +1303,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
-        <a href="https://lorenzoarquitectura.com" class="footer-logo" aria-label="Ir a la web principal de Lorenzo Arquitectura">
+        <a href="https://www.lorenzoarquitectura.com" class="footer-logo" aria-label="Ir a la web principal de Lorenzo Arquitectura">
           <img src="assets/logo-lorenzo.png" alt="Lorenzo Arquitectura · Obras y Proyectos">
         </a>
         <p>Partner técnico de obra para estudios de arquitectura e interiorismo en Madrid y Toledo.</p>
@@ -1358,7 +1358,7 @@
   });
 
   // Generic form handler factory
-  function handleForm(formId, containerId, successId, submitBtnId, fields) {
+  function handleForm(formId, containerId, successId, submitBtnId, fields, onSuccess) {
     const form = document.getElementById(formId);
     const container = document.getElementById(containerId);
     const success = document.getElementById(successId);
@@ -1406,6 +1406,8 @@
         if (response.ok && result.success) {
           container.querySelector('.form-fields').style.display = 'none';
           success.classList.add('active');
+          // Callback opcional al completar con éxito
+          if (typeof onSuccess === 'function') onSuccess();
           // Tracking opcional para analítica:
           // if (typeof gtag === 'function') gtag('event', 'form_submit', { form_id: formId });
         } else {
@@ -1431,10 +1433,16 @@
     { id: 'm-project', name: 'project', required: false }
   ]);
 
+  // URL de la guía en Google Drive
+  const GUIDE_URL = 'https://drive.google.com/file/d/1HsLwRcx8wYztjLBjywTlnA0YovLxjmnA/view?usp=sharing';
+
   handleForm('guideForm', 'guideFormContainer', 'guideSuccess', 'guideSubmit', [
     { id: 'g-name', name: 'name', required: true },
     { id: 'g-email', name: 'email', required: true, type: 'email' }
-  ]);
+  ], () => {
+    // Abrir la guía en una pestaña nueva al completar el envío
+    window.open(GUIDE_URL, '_blank', 'noopener,noreferrer');
+  });
 
   // Header shadow on scroll
   const header = document.querySelector('header');
