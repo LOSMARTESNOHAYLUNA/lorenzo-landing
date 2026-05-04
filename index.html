@@ -1136,6 +1136,12 @@
             <h3>Solicita tu reunión técnica</h3>
             <p class="form-intro">Te contactamos en menos de 24h laborables para confirmar fecha y formato (presencial en Madrid/Toledo o videollamada).</p>
             <form id="meetingForm" novalidate>
+              <!-- Web3Forms config -->
+              <input type="hidden" name="access_key" value="613fdf6d-bfd4-4297-bdca-22b031ac9a15">
+              <input type="hidden" name="subject" value="Nueva solicitud de reunión técnica - Landing">
+              <input type="hidden" name="from_name" value="Landing Lorenzo - Reuniones">
+              <input type="hidden" name="redirect" value="false">
+              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
               <div class="form-row">
                 <div class="form-group">
                   <label for="m-name">Nombre</label>
@@ -1258,6 +1264,12 @@
           <h3>Recíbela en tu correo</h3>
           <p class="form-intro">Déjanos nombre y correo. Te llega en menos de 2 minutos.</p>
           <form id="guideForm" novalidate>
+            <!-- Web3Forms config -->
+            <input type="hidden" name="access_key" value="613fdf6d-bfd4-4297-bdca-22b031ac9a15">
+            <input type="hidden" name="subject" value="Nueva descarga de guía - Landing">
+            <input type="hidden" name="from_name" value="Landing Lorenzo - Guía">
+            <input type="hidden" name="redirect" value="false">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
             <div class="form-group">
               <label for="g-name">Nombre</label>
               <input type="text" id="g-name" name="name" required placeholder="Tu nombre" autocomplete="given-name">
@@ -1353,17 +1365,15 @@
     const submitBtn = document.getElementById(submitBtnId);
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       let valid = true;
-      const data = {};
 
       fields.forEach(f => {
         const el = document.getElementById(f.id);
         if (!el) return;
         el.classList.remove('error');
         const val = el.value.trim();
-        data[f.name] = val;
 
         if (f.required && !val) { el.classList.add('error'); valid = false; }
         if (f.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
@@ -1376,16 +1386,40 @@
 
       if (!valid) return;
 
+      const originalBtnHTML = submitBtn.innerHTML;
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span>Enviando…</span>';
 
-      // Simulate submission. In production, connect to CRM/email tool.
-      setTimeout(() => {
-        container.querySelector('.form-fields').style.display = 'none';
-        success.classList.add('active');
-        // Actual integration point:
-        // fetch('/api/submit', { method: 'POST', body: JSON.stringify({ type: formId, ...data }) });
-      }, 900);
+      // Limpiar mensaje de error previo si lo hay
+      const oldError = form.querySelector('.form-error-msg');
+      if (oldError) oldError.remove();
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          container.querySelector('.form-fields').style.display = 'none';
+          success.classList.add('active');
+          // Tracking opcional para analítica:
+          // if (typeof gtag === 'function') gtag('event', 'form_submit', { form_id: formId });
+        } else {
+          throw new Error(result.message || 'Error al enviar el formulario');
+        }
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHTML;
+        const errorMsg = document.createElement('p');
+        errorMsg.className = 'form-error-msg';
+        errorMsg.style.cssText = 'color:#c44;font-size:0.85rem;margin-top:14px;text-align:center;line-height:1.5;';
+        errorMsg.textContent = 'No hemos podido enviar el formulario. Inténtalo de nuevo o escríbenos a info@lorenzoarquitectura.com';
+        submitBtn.parentNode.insertBefore(errorMsg, submitBtn.nextSibling);
+      }
     });
   }
 
